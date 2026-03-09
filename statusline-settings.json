@@ -1,0 +1,64 @@
+{
+  "_comment": "Claude Code status line settings. Edit this file to customize what you see.",
+
+  "components": [
+    "model",
+    "repo",
+    "context_bar",
+    "context_percent",
+    "tokens",
+    "cost"
+  ],
+
+  "separator": "  ",
+
+  "model": {
+    "enabled": true,
+    "color": "cyan",
+    "bold": true
+  },
+
+  "repo": {
+    "enabled": true,
+    "color": "bright_blue",
+    "bold": false,
+    "show_full_path": false,
+    "prefix": "📁 "
+  },
+
+  "context_bar": {
+    "enabled": true,
+    "width": 15,
+    "style": "block",
+    "filled_char": "█",
+    "empty_char": "░",
+    "low_threshold": 50,
+    "high_threshold": 80,
+    "color_low": "green",
+    "color_medium": "yellow",
+    "color_high": "red",
+    "brackets": true
+  },
+
+  "context_percent": {
+    "enabled": true,
+    "color": "white",
+    "decimal_places": 1
+  },
+
+  "tokens": {
+    "enabled": true,
+    "color": "bright_black",
+    "show_input": true,
+    "show_output": true,
+    "format": "compact"
+  },
+
+  "cost": {
+    "enabled": true,
+    "color": "magenta",
+    "bold": false,
+    "prefix": "$",
+    "decimal_places": 4
+  }
+}
