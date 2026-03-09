@@ -25,15 +25,54 @@ claude-sonnet-4-6  📁 my-project  [█████░░░░░░░░░�
 
 ## Installation
 
+**Requirements:** Python 3 (standard library only — no pip installs needed) and Claude Code CLI.
+
+### Automated installation
+
+The installer downloads the files, sets permissions, patches `settings.json`, and prints a configuration guide — all in one step.
+
+**Global install** — applies to every Claude Code session for your user account:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/yigalc/customized_claude_code_termial/main/install.sh | bash -s -- --global
+```
+
+**Local install** — applies only to the Claude Code session in the current directory:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/yigalc/customized_claude_code_termial/main/install.sh | bash -s -- --local
+```
+
+**Interactive** — the installer will ask you to choose:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/yigalc/customized_claude_code_termial/main/install.sh | bash
+```
+
+The installer will not overwrite an existing `statusline-settings.json` (your settings are preserved on re-install) and backs up `settings.json` before modifying it.
+
+---
+
+### Manual installation
+
 **1. Copy the script and settings file to your Claude config directory:**
 
 ```bash
+# Global (all sessions)
 cp statusline.py ~/.claude/statusline.py
 cp statusline-settings.json ~/.claude/statusline-settings.json
 chmod +x ~/.claude/statusline.py
+
+# Local (current project only)
+mkdir -p .claude
+cp statusline.py .claude/statusline.py
+cp statusline-settings.json .claude/statusline-settings.json
+chmod +x .claude/statusline.py
 ```
 
-**2. Add the `statusLine` entry to `~/.claude/settings.json`:**
+**2. Add the `statusLine` entry to `settings.json`:**
+
+For a global install, edit `~/.claude/settings.json`. For a local install, edit `.claude/settings.json` in your project root.
 
 ```json
 {
@@ -44,14 +83,11 @@ chmod +x ~/.claude/statusline.py
 }
 ```
 
-If `settings.json` already has other keys, just add the `statusLine` block alongside them.
+For a local install, replace `~/.claude/statusline.py` with the absolute path to your `.claude/statusline.py`.
+
+If `settings.json` already has other keys, add the `statusLine` block alongside them.
 
 **3. Start (or restart) Claude Code.** The status line appears at the bottom of the terminal and updates after each response.
-
-### Requirements
-
-- Python 3 (standard library only — no pip installs needed)
-- Claude Code CLI
 
 ---
 
